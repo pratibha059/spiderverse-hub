@@ -1,0 +1,329 @@
+/* Global Design System and Variables */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bangers&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+  /* Common Palette */
+  --bg-dark: #08080c;
+  --bg-surface: #101016;
+  --border-color: #000000;
+  
+  /* Spider-Man Theme (Spidey Red & Blue) */
+  --spidey-red: #e52521;
+  --spidey-blue: #092c7c;
+  --spidey-blue-light: #005ce6;
+  --spidey-yellow: #fde047;
+  
+  /* Spider-Gwen Theme (Neon Pink, Aqua & Purple) */
+  --gwen-pink: #ff3377;
+  --gwen-pink-glow: rgba(255, 51, 119, 0.4);
+  --gwen-teal: #00f2fe;
+  --gwen-purple: #4f46e5;
+  --gwen-white: #fafafa;
+  --gwen-black: #111115;
+  
+  /* Comic Book Card Styles */
+  --comic-border: 3.5px solid #000000;
+  --comic-shadow: 4px 4px 0px #000000;
+  --comic-shadow-hover: 8px 8px 0px #000000;
+  
+  /* Fonts */
+  --font-title: 'Bangers', cursive;
+  --font-comic: 'Comic Neue', cursive;
+  --font-hand: 'Architects Daughter', cursive;
+  --font-sans: 'Inter', sans-serif;
+  
+  /* Transitions */
+  --transition-comic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background-color: var(--bg-dark);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Halftone Dot Overlay */
+body {
+  position: relative;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.015) 15%, transparent 16%),
+    radial-gradient(rgba(0, 0, 0, 0.7) 0%, var(--bg-dark) 100%);
+  background-size: 12px 12px, 100% 100%;
+  background-attachment: fixed;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+  border-left: 2px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--spidey-red);
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gwen-pink);
+}
+
+/* Global Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #000;
+}
+
+p, span, li, button, input, textarea {
+  font-family: var(--font-sans);
+}
+
+/* Comic-Style Containers */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Comic Styling Utility Classes */
+.comic-card {
+  background: var(--bg-surface);
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: 4px;
+  padding: 1.5rem;
+  transition: transform 0.2s var(--transition-comic), box-shadow 0.2s var(--transition-comic);
+  position: relative;
+  overflow: hidden;
+}
+
+.comic-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--comic-shadow-hover);
+}
+
+/* Comic Panel Gutters */
+.panel-gutter {
+  border: 4px solid #000000;
+  background: #101018;
+  box-shadow: 6px 6px 0px #000000;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s var(--transition-comic);
+}
+
+.panel-gutter:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px #000000;
+}
+
+/* Action Plates */
+.action-plate {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: #000000;
+  border: 3.5px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transform: rotate(-5deg);
+  cursor: default;
+  user-select: none;
+  transition: transform 0.2s var(--transition-comic);
+}
+
+.action-plate:hover {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.plate-pow { background: var(--spidey-yellow); }
+.plate-thwip { background: var(--gwen-teal); color: #000; }
+.plate-boom { background: var(--spidey-red); color: #fff; text-shadow: 2px 2px 0 #000; }
+.plate-zap { background: var(--gwen-pink); color: #fff; text-shadow: 2px 2px 0 #000; }
+
+/* Comic Speech Bubble */
+.speech-bubble {
+  position: relative;
+  background: #ffffff;
+  border: 3px solid #000000;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  color: #000000;
+  font-family: var(--font-comic);
+  font-weight: bold;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  border-width: 15px 15px 0 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -19px;
+  left: 28px;
+  border-width: 17px 17px 0 0;
+  border-style: solid;
+  border-color: #000000 transparent;
+  display: block;
+  width: 0;
+  z-index: -1;
+}
+
+/* Custom Interactive Inputs */
+.comic-input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  background: #ffffff;
+  border: 3px solid #000000;
+  border-radius: 4px;
+  color: #000000;
+  font-family: var(--font-comic);
+  font-weight: bold;
+  box-shadow: 2px 2px 0px #000000;
+  outline: none;
+  transition: 0.15s ease;
+}
+
+.comic-input:focus {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000000;
+  background: #fffdf0;
+}
+
+/* Comic Action Buttons */
+.comic-btn {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.75rem;
+  border: var(--comic-border);
+  box-shadow: var(--comic-shadow);
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.1s var(--transition-comic), box-shadow 0.1s var(--transition-comic);
+}
+
+.comic-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--comic-shadow-hover);
+}
+
+.comic-btn:active {
+  transform: translate(0px, 0px);
+  box-shadow: var(--comic-shadow);
+}
+
+/* Spidey Themed Button */
+.btn-spidey {
+  background: var(--spidey-red);
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #000;
+}
+.btn-spidey:hover {
+  background: #ff3b30;
+}
+
+/* Gwen Themed Button */
+.btn-gwen {
+  background: var(--gwen-pink);
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #000;
+}
+.btn-gwen:hover {
+  background: #ff528c;
+}
+
+/* Neon Comic Badge */
+.comic-badge {
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #000;
+  border-radius: 3px;
+  display: inline-block;
+  text-shadow: none;
+  color: #000;
+  transform: rotate(-2deg);
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px rgba(255, 51, 119, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(255, 51, 119, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(255, 51, 119, 0.2); }
+}
+
+@keyframes scroll-skyline {
+  0% { background-position-x: 0px; }
+  100% { background-position-x: -1200px; }
+}
+
+@keyframes web-shoot {
+  0% { transform: scale(0) rotate(0deg); opacity: 0; }
+  50% { transform: scale(1.2) rotate(45deg); opacity: 0.9; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.gwen-glow {
+  animation: pulse-glow 3s infinite;
+}
+
+/* Responsive Grid classes */
+.comic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .comic-grid {
+    grid-template-columns: 1fr;
+  }
+}

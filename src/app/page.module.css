@@ -1,0 +1,393 @@
+.mainContent {
+  padding-bottom: 5rem;
+  flex: 1;
+}
+
+/* Comic Page Background with City Skyline */
+.heroSection {
+  position: relative;
+  background: linear-gradient(180deg, #090915 0%, #15152a 100%);
+  padding: 4rem 0 6rem 0;
+  border-bottom: 5px solid #000;
+  overflow: hidden;
+}
+
+.skylineBg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 250' fill='%2308080f'%3E%3Cpath d='M0 250V190l15-20h20l10 20V120l15-15h25l10 15v130zm85 0V90l20-20h30l20 20v160zm85 0V150l10-10h15l10 10v100zm35 0V60l15-15h40l15 15v190zm85 0V140l10-15h25l15 15v110zm60 0V180l15-15h20l10 15v70zm45 0V100l20-15h30l20 15v150zm85 0V130l10-10h15l10 10v120zm35 0V40l20-20h45l20 20v210zm100 0V150l10-10h20l10 10v100zm50 0V90l15-15h30l15 15v160zm75 0V170l10-10h15l10 10v80zm35 0V70l15-15h35l15 15v180zm80 0V130l10-15h25l15 15v120zm60 0V160l15-15h20l10 15v90zm45 0V80l20-15h35l20 15v170z'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 1200px 220px;
+  animation: scroll-skyline 55s linear infinite;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+.skylineBgFore {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 110px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' fill='%23050508'%3E%3Cpath d='M0 120v-50l10-10h20l10 10v50zm50 0V40l15-15h30l15 15v80zm75 0v-65l10-10h15l10 10v65zm45 0v-30l5-5h10l5 5v30zm30 0v-75l15-15h25l15 15v75zm65 0v-45l10-10h15l10 10v45zm45 0V25l15-15h35l15 15v95zm80 0v-55l10-10h20l10 10v55zm50 0v-35l10-10h15l10 10v35zm45 0v-60l15-15h30l15 15v60zm75 0v-40l10-10h15l10 10v40zm45 0v-65l15-15h25l15 15v65z'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 1200px 110px;
+  animation: scroll-skyline 20s linear infinite;
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+}
+
+/* Comic Book Logo Starburst Title */
+.logoWrapper {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+.starburst {
+  background: var(--spidey-yellow);
+  color: #000;
+  border: 4px solid #000;
+  padding: 0.5rem 2rem;
+  display: inline-block;
+  transform: rotate(-3deg) skew(-5deg);
+  box-shadow: 6px 6px 0px #000000;
+  z-index: 5;
+  position: relative;
+}
+
+.heroTitle {
+  font-family: var(--font-title);
+  font-size: 5rem;
+  line-height: 1.1;
+  text-shadow: 5px 5px 0px #000;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.heroTitleHighlight {
+  color: var(--gwen-pink);
+  text-shadow: 4px 4px 0px var(--spidey-blue-light);
+}
+
+.heroSubtitle {
+  font-family: var(--font-comic);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #fafafa;
+  max-width: 800px;
+  margin: 1.5rem auto;
+  line-height: 1.6;
+  text-shadow: 2px 2px 0px #000;
+  text-align: center;
+}
+
+/* Animated Portal energy effect behind hero */
+.portalContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  z-index: 0;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.portalRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 12px dashed var(--gwen-pink);
+  animation: spin 35s linear infinite;
+}
+
+.portalRingInner {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  border: 8px dashed var(--gwen-teal);
+  animation: spin-reverse 20s linear infinite;
+}
+
+.portalCenter {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--spidey-red) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Floating Plates Container */
+.platesContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+/* 3-Panel Comic Book Layout Grid */
+.comicSplashGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* Individual Panel Styling */
+.splashPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+  min-height: 380px;
+  background: #111116;
+  transform: rotate(0.5deg);
+}
+
+.panelSpidey {
+  border-top: 6px solid var(--spidey-red);
+  transform: rotate(-1deg);
+}
+
+.panelGwen {
+  border-top: 6px solid var(--gwen-pink);
+  transform: rotate(1deg);
+}
+
+.panelHub {
+  border-top: 6px solid var(--gwen-teal);
+  transform: rotate(-0.5deg);
+  background: #0f1015;
+}
+
+.panelIllustration {
+  width: 100%;
+  height: 150px;
+  background: radial-gradient(circle, #1a1a2e 0%, #08080f 100%);
+  border: 3.5px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: inset 0 0 10px #000;
+}
+
+.panelCaption {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.panelText {
+  font-family: var(--font-comic);
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #cbd5e1;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.panelButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Stats list inside panels */
+.panelStats {
+  list-style: none;
+  font-family: var(--font-comic);
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 1.25rem;
+  color: #e2e8f0;
+}
+
+.panelStats li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.statValueSpidey { color: var(--spidey-yellow); }
+.statValueGwen { color: var(--gwen-teal); }
+
+/* Daily Widgets Grid (Facts, Jokes, Character of the Week) */
+.widgetsSection {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.characterOfWeekCard {
+  grid-column: span 2;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: linear-gradient(135deg, #181124 0%, #0a0a0f 100%);
+  border: 3.5px solid #000;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.weekCharImage {
+  width: 150px;
+  height: 180px;
+  flex-shrink: 0;
+  border: 3.5px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  overflow: hidden;
+}
+
+.widgetCard {
+  background: #111116;
+  border: 3.5px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+}
+
+.widgetTitle {
+  font-size: 1.8rem;
+  color: var(--spidey-yellow);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 0 #000;
+}
+
+.widgetText {
+  font-family: var(--font-comic);
+  font-weight: bold;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #e2e8f0;
+  flex: 1;
+}
+
+/* Featured characters list */
+.featuredSection {
+  margin-top: 4rem;
+}
+
+.featuredTitle {
+  font-size: 2.5rem;
+  border-bottom: 3.5px solid #000;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.featuredCharCard {
+  background: #111116;
+  border: 3px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s var(--transition-comic);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.featuredCharCard:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 #000;
+  border-color: var(--spidey-yellow);
+}
+
+.featuredCharName {
+  font-family: var(--font-title);
+  font-size: 1.3rem;
+  color: #fff;
+  text-shadow: none;
+  margin-top: 0.75rem;
+}
+
+/* News section headers */
+.articlesHeader {
+  margin: 5rem 0 2.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 4px solid #000;
+  padding-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.articlesTitle {
+  font-size: 3rem;
+  text-shadow: 3px 3px 0px #000;
+}
+
+.blogList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2.5rem;
+}
+
+@media (max-width: 992px) {
+  .comicSplashGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .widgetsSection {
+    grid-template-columns: 1fr;
+  }
+  .characterOfWeekCard {
+    grid-column: span 1;
+    flex-direction: column;
+    text-align: center;
+  }
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+  .splashPanel {
+    min-height: auto;
+    transform: none !important;
+  }
+}

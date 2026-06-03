@@ -1,0 +1,207 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1.5rem;
+  background: radial-gradient(circle, rgba(17, 17, 21, 0.95) 0%, rgba(8, 8, 12, 1) 100%);
+  position: relative;
+}
+
+/* Background spider web decorative line art */
+.loginContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(229, 37, 33, 0.05) 100%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 40px, rgba(255, 255, 255, 0.03) 40px, rgba(255, 255, 255, 0.03) 42px);
+  z-index: 0;
+}
+
+.loginCard {
+  width: 100%;
+  max-width: 440px;
+  padding: 3rem 2.5rem;
+  background: #151520;
+  border: 4px solid #000000;
+  box-shadow: 8px 8px 0px #000000;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  transform: rotate(-1deg);
+  animation: entrance 0.5s var(--transition-comic);
+}
+
+@keyframes entrance {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-1deg);
+  }
+}
+
+.header {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.title {
+  font-family: var(--font-title);
+  font-size: 3rem;
+  color: var(--spidey-yellow);
+  text-shadow: 4px 4px 0px #000000;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  transform: skew(-5deg);
+}
+
+.subtitle {
+  color: #c8c8d5;
+  font-family: var(--font-comic);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 1px 0px #000;
+}
+
+.inputField {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 3px solid #000000;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-comic);
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 3px 3px 0px #000000;
+  outline: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.inputField:focus {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000000;
+  background: #fffdde;
+}
+
+.submitBtn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.9rem;
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  background: var(--spidey-red);
+  color: #ffffff;
+  border: 3.5px solid #000000;
+  box-shadow: 4px 4px 0px #000000;
+  border-radius: 4px;
+  cursor: pointer;
+  text-shadow: 2px 2px 0px #000;
+  transition: all 0.2s var(--transition-comic);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translate(-3px, -3px);
+  box-shadow: 7px 7px 0px #000000;
+  background: #ff2520;
+}
+
+.submitBtn:active:not(:disabled) {
+  transform: translate(0px, 0px);
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.submitBtn:disabled {
+  background: #444;
+  border-color: #222;
+  box-shadow: none;
+  color: #888;
+  text-shadow: none;
+  cursor: not-allowed;
+}
+
+.hintBox {
+  margin-top: 2rem;
+  padding: 0.85rem;
+  background: #ffffff;
+  border: 3px solid #000000;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+  border-radius: 4px;
+  font-family: var(--font-comic);
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000000;
+  position: relative;
+}
+
+.hintBox::before {
+  content: "ACCESS CODE:";
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  background: var(--gwen-pink);
+  color: #fff;
+  padding: 0.1rem 0.4rem;
+  border: 2px solid #000;
+  position: absolute;
+  top: -12px;
+  left: 10px;
+  transform: rotate(-3deg);
+}
+
+.hintHighlight {
+  color: var(--spidey-red);
+  font-family: var(--font-title);
+  font-size: 1rem;
+}
+
+.errorBadge {
+  background: var(--spidey-red);
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px #000;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  font-family: var(--font-comic);
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}

@@ -1,0 +1,118 @@
+.sliderContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 2px;
+  background-color: #0e0e14;
+  border: 3.5px solid #000000;
+}
+
+.slidesWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideActive {
+  opacity: 1;
+  visibility: visible;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Comic Navigation Buttons */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 2px solid #000000;
+  box-shadow: 2px 2px 0px #000000;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.2s var(--transition-comic);
+  z-index: 10;
+}
+
+.sliderContainer:hover .navBtn {
+  opacity: 1;
+}
+
+.prevBtn {
+  left: 0.75rem;
+}
+
+.nextBtn {
+  right: 0.75rem;
+}
+
+.navBtn:hover {
+  background: var(--spidey-yellow);
+  transform: translateY(-50%) translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.navBtn:active {
+  transform: translateY(-50%) translate(0px, 0px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Comic Dot Indicators */
+.dotsContainer {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 10;
+  padding: 0.3rem 0.6rem;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.15);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #c8c8c8;
+  border: 1px solid #000000;
+  transition: all 0.2s ease;
+}
+
+.dotActive {
+  background: var(--spidey-red);
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background: #000000;
+  cursor: pointer;
+}

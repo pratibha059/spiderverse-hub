@@ -1,0 +1,172 @@
+.header {
+  background: var(--bg-surface);
+  border-bottom: 3.5px solid #000000;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.5rem 0;
+}
+
+/* Spider-Man active page header colors */
+.headerSpidey {
+  background: var(--spidey-blue);
+  border-bottom: 3.5px solid var(--spidey-red);
+}
+
+/* Spider-Gwen active page header colors */
+.headerGwen {
+  background: var(--gwen-black);
+  border-bottom: 3.5px solid var(--gwen-pink);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px #000000;
+  transition: transform 0.2s var(--transition-comic);
+}
+
+.logo:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.logoSpidey {
+  color: var(--spidey-yellow);
+}
+
+.logoGwen {
+  color: var(--gwen-pink);
+  text-shadow: 2px 2px 0px var(--gwen-teal);
+}
+
+.navMenu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #c8c8c8;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: 2px solid transparent;
+  transition: all 0.2s var(--transition-comic);
+  text-transform: uppercase;
+}
+
+.navLink:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.navLinkActive {
+  color: #ffffff !important;
+  border: 2px solid #000;
+  box-shadow: 2px 2px 0px #000;
+}
+
+/* Color schemes for active states depending on path */
+.navLinkActiveSpidey {
+  background: var(--spidey-red);
+  color: #ffffff !important;
+}
+
+.navLinkActiveGwen {
+  background: var(--gwen-pink);
+  color: #ffffff !important;
+  box-shadow: 2px 2px 0px var(--gwen-teal);
+}
+
+.navLinkActiveDefault {
+  background: #ffffff;
+  color: #000000 !important;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: 2px solid #000000;
+  font-family: var(--font-comic);
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.userBadgeSpidey {
+  border-color: var(--spidey-yellow);
+  color: var(--spidey-yellow);
+}
+
+.userBadgeGwen {
+  border-color: var(--gwen-teal);
+  color: var(--gwen-teal);
+}
+
+.dotOnline {
+  width: 8px;
+  height: 8px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.logoutBtn {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  background: #111115;
+  color: #ffffff;
+  border: 2px solid #000000;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: 2px 2px 0px #000;
+  transition: all 0.2s var(--transition-comic);
+}
+
+.logoutBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #000;
+  background: var(--spidey-red);
+}
+
+@media (max-width: 992px) {
+  .navContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .navMenu {
+    justify-content: center;
+  }
+  .navActions {
+    justify-content: center;
+  }
+}
